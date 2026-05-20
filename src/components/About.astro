@@ -23,6 +23,7 @@ const t = useTranslations(lang);
     <div class="quote-block">
       <p class="quote">&ldquo;{t('about.quote')}&rdquo;</p>
       <div class="quote-author">{t('about.quote.author')}</div>
+      <div class="quote-note">{t('about.quote.note')}</div>
     </div>
   </div>
 </section>
@@ -86,6 +87,13 @@ const t = useTranslations(lang);
     font-size: 10px;
     color: var(--accent-bright);
     letter-spacing: 2px;
+  }
+  .quote-note {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-dim);
+    letter-spacing: 1.5px;
+    margin-top: var(--space-2);
   }
 
   @media (max-width: 1024px) {

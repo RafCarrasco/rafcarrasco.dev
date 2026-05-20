@@ -30,8 +30,10 @@ export const ui = {
       'Engenheiro de software formado em Ciência da Computação pelo Instituto Mauá de Tecnologia. Trabalho na interseção entre front-end, back-end e inteligência artificial — do código que escala às decisões de arquitetura que orientam o produto.',
     'about.p2':
       'Meu dia a dia mistura fullstack, com grande maioria em Flutter, Node.js, Firebase, REST APIs e o desenho de sistemas baseados em LLMs, MCP Servers e Agents, sempre buscando equilíbrio entre engenharia sólida e impacto real.',
-    'about.quote': 'Não diminua a meta, aumente o esforço.',
+    'about.quote':
+      'Se você quer ser bem-sucedido, precisa ter dedicação total, buscar seu último limite e dar o melhor de si.',
     'about.quote.author': '— AYRTON SENNA',
+    'about.quote.note': 'EM ENTREVISTA A JOÃO DÓRIA JÚNIOR, 1994',
     'expertise.title': 'Stack técnico.',
     'expertise.ai.title': 'AI Agents',
     'expertise.ai.desc': 'Sistemas autônomos com tool-use, planning e long-running tasks',
@@ -82,8 +84,10 @@ export const ui = {
       'Software engineer with a Computer Science degree from Instituto Mauá de Tecnologia. I work at the intersection of front-end, back-end and artificial intelligence — from code that scales to the architecture decisions that shape the product.',
     'about.p2':
       'My day-to-day blends fullstack work — mostly Flutter, Node.js, Firebase, REST APIs — with designing systems built on LLMs, MCP Servers and Agents, always seeking the balance between solid engineering and real impact.',
-    'about.quote': "Don't lower the goal, raise the effort.",
+    'about.quote':
+      'If you want to be successful, you need total dedication — push your limits and give your best.',
     'about.quote.author': '— AYRTON SENNA',
+    'about.quote.note': 'INTERVIEW WITH JOÃO DÓRIA JÚNIOR, 1994',
     'expertise.title': 'Technical stack.',
     'expertise.ai.title': 'AI Agents',
     'expertise.ai.desc': 'Autonomous systems with tool-use, planning and long-running tasks',

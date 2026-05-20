@@ -1,0 +1,108 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="about" id="about">
+  <div class="sec-num">{t('sec.01')}</div>
+  <h2 class="sec-title">
+    {t('about.title.line1')}
+    <em>{lang === 'pt' ? 'software' : 'engineering'}</em>
+    <br />
+    {lang === 'pt' ? 'com olhar de' : 'with an'}
+    <em>{lang === 'pt' ? 'arquiteto' : 'architect'}</em>{lang === 'en' ? ' mindset' : ''}.
+  </h2>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p>{t('about.p1')}</p>
+      <p>{t('about.p2')}</p>
+    </div>
+    <div class="quote-block">
+      <p class="quote">&ldquo;{t('about.quote')}&rdquo;</p>
+      <div class="quote-author">{t('about.quote.author')}</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: var(--section-padding);
+    border-top: 1px solid var(--border);
+  }
+
+  .sec-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent-bright);
+    letter-spacing: 2px;
+    margin-bottom: var(--space-4);
+  }
+
+  .sec-title {
+    font-family: var(--font-serif);
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: var(--space-12);
+  }
+  .sec-title em {
+    color: var(--accent-bright);
+    font-style: normal;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: var(--space-12);
+  }
+
+  .about-text p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+
+  .quote-block {
+    border-left: 2px solid var(--accent);
+    padding-left: var(--space-6);
+  }
+  .quote {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    color: var(--text-primary);
+    line-height: 1.4;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    font-style: italic;
+    margin-bottom: var(--space-3);
+  }
+  .quote-author {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--accent-bright);
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 1024px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+    .sec-title {
+      font-size: 32px;
+    }
+  }
+  @media (max-width: 768px) {
+    .sec-title {
+      font-size: 28px;
+    }
+    .quote {
+      font-size: 22px;
+    }
+  }
+</style>

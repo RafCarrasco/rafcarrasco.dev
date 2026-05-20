@@ -15,6 +15,9 @@ const [titleStart, titleEnd] = title.split(/\s+(?=\S+\.?$)/);
   </h2>
   <p class="subtitle">{t('contact.subtitle')}</p>
   <div class="links">
+    <a class="link primary" href="/cv/rafael-carrasco-cv.pdf" target="_blank" rel="noopener">
+      {t('contact.cv')}
+    </a>
     <a
       class="link"
       href="https://linkedin.com/in/rafael-alves-carrasco"
@@ -82,6 +85,14 @@ const [titleStart, titleEnd] = title.split(/\s+(?=\S+\.?$)/);
   .link:hover {
     background: var(--accent);
     color: var(--text-primary);
+  }
+  .link.primary {
+    background: var(--accent);
+    color: var(--text-primary);
+  }
+  .link.primary:hover {
+    background: #2e5cff;
+    border-color: #2e5cff;
   }
 
   @media (max-width: 768px) {

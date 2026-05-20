@@ -53,6 +53,7 @@ export const ui = {
     'contact.title': 'Vamos conversar.',
     'contact.subtitle':
       'Aberto a oportunidades em AI Innovation, consultorias técnicas e projetos com agents/LLMs.',
+    'contact.cv': 'DOWNLOAD CV ↓',
     'modal.close': 'Fechar',
     'modal.github': '→ GITHUB REPO',
     'modal.demo': '→ LIVE DEMO',
@@ -104,6 +105,7 @@ export const ui = {
     'contact.title': "Let's talk.",
     'contact.subtitle':
       'Open to AI Innovation roles, technical consulting and freelance projects involving agents/LLMs.',
+    'contact.cv': 'DOWNLOAD CV ↓',
     'modal.close': 'Close',
     'modal.github': '→ GITHUB REPO',
     'modal.demo': '→ LIVE DEMO',

@@ -23,6 +23,6 @@ test('clicking close button closes the modal', async ({ page }) => {
 
 test('certificate row opens cert modal', async ({ page }) => {
   await page.goto('/');
-  await page.locator('[data-cert="anthropic-claude"]').click();
-  await expect(page.locator('#cert-anthropic-claude')).toBeVisible();
+  await page.locator('[data-cert="michigan"]').click();
+  await expect(page.locator('#cert-michigan')).toBeVisible();
 });

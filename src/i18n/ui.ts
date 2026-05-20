@@ -16,7 +16,7 @@ export const ui = {
     'nav.contact': 'CONTATO',
     'hero.eyebrow': 'TECHNICAL ARCHITECT — AI INNOVATION',
     'hero.tagline':
-      'Engenheiro de software com olhar de arquiteto — entre mobile, back-end e a nova fronteira da inteligência artificial.',
+      'Engenheiro de software com olhar de arquiteto — entre front-end, back-end e a nova fronteira da inteligência artificial.',
     'hero.cta.projects': 'VER PROJETOS →',
     'hero.cta.contact': 'FALAR COMIGO',
     'sec.01': '01 — SOBRE',
@@ -27,7 +27,7 @@ export const ui = {
     'about.title.line1': 'Engenharia de',
     'about.title.line2': 'com olhar de',
     'about.p1':
-      'Engenheiro de software formado em Ciência da Computação pelo Instituto Mauá de Tecnologia. Trabalho na interseção entre mobile, web, app, back-end e inteligência artificial — do código que escala às decisões de arquitetura que orientam o produto.',
+      'Engenheiro de software formado em Ciência da Computação pelo Instituto Mauá de Tecnologia. Trabalho na interseção entre front-end, back-end e inteligência artificial — do código que escala às decisões de arquitetura que orientam o produto.',
     'about.p2':
       'Meu dia a dia mistura fullstack, com grande maioria em Flutter, Node.js, Firebase, REST APIs e o desenho de sistemas baseados em LLMs, MCP Servers e Agents, sempre buscando equilíbrio entre engenharia sólida e impacto real.',
     'about.quote': 'Não diminua a meta, aumente o esforço.',
@@ -67,7 +67,7 @@ export const ui = {
     'nav.contact': 'CONTACT',
     'hero.eyebrow': 'TECHNICAL ARCHITECT — AI INNOVATION',
     'hero.tagline':
-      'Software engineer with an architect mindset — across mobile, back-end and the new frontier of artificial intelligence.',
+      'Software engineer with an architect mindset — across front-end, back-end and the new frontier of artificial intelligence.',
     'hero.cta.projects': 'SEE PROJECTS →',
     'hero.cta.contact': 'GET IN TOUCH',
     'sec.01': '01 — ABOUT',
@@ -78,7 +78,7 @@ export const ui = {
     'about.title.line1': 'Software',
     'about.title.line2': 'with an',
     'about.p1':
-      'Software engineer with a Computer Science degree from Instituto Mauá de Tecnologia. I work at the intersection of mobile, web, app, back-end and artificial intelligence — from code that scales to the architecture decisions that shape the product.',
+      'Software engineer with a Computer Science degree from Instituto Mauá de Tecnologia. I work at the intersection of front-end, back-end and artificial intelligence — from code that scales to the architecture decisions that shape the product.',
     'about.p2':
       'My day-to-day blends fullstack work — mostly Flutter, Node.js, Firebase, REST APIs — with designing systems built on LLMs, MCP Servers and Agents, always seeking the balance between solid engineering and real impact.',
     'about.quote': "Don't lower the goal, raise the effort.",

@@ -13,11 +13,13 @@ Landing page profissional bilíngue (PT/EN) para Rafael Carrasco — Technical A
 **Posicionamento:** engenheiro de software com olhar de arquiteto, atuando na interseção entre mobile, web, back-end e IA.
 
 **Audiência primária:**
+
 - Recrutadores técnicos (mercado nacional e internacional)
 - Potenciais clientes de consultoria/freela em AI
 - Pares da indústria (networking)
 
 **Critérios de sucesso:**
+
 - Comunica seniority e identidade técnica em menos de 10 segundos no hero
 - Carrega em < 1.5s (Lighthouse Performance 95+)
 - Acessível em PT-BR e EN com toggle visível
@@ -30,31 +32,32 @@ Landing page profissional bilíngue (PT/EN) para Rafael Carrasco — Technical A
 
 ### Paleta (Royal Blue, modo escuro)
 
-| Token | Hex | Uso |
-|---|---|---|
-| `bg-primary` | `#08080d` | Fundo principal |
-| `bg-secondary` | `#0d0d14` | Cards, seções alternadas |
-| `bg-tertiary` | `#14141c` | Cards elevados, gradientes |
-| `border` | `#1a1a22` | Divisores, bordas sutis |
-| `border-strong` | `#2a2a35` | Bordas de chips, inputs |
-| `accent` | `#1e40af` | Royal Blue — bordas ativas, CTAs |
-| `accent-bright` | `#5582e8` | Texto azul, ícones, hover states |
-| `text-primary` | `#ffffff` | Headings, conteúdo principal |
-| `text-secondary` | `#bbbbbb` | Body, parágrafos |
-| `text-muted` | `#888888` | Labels, metadata |
-| `text-dim` | `#555555` | Numeração, hints |
+| Token            | Hex       | Uso                              |
+| ---------------- | --------- | -------------------------------- |
+| `bg-primary`     | `#08080d` | Fundo principal                  |
+| `bg-secondary`   | `#0d0d14` | Cards, seções alternadas         |
+| `bg-tertiary`    | `#14141c` | Cards elevados, gradientes       |
+| `border`         | `#1a1a22` | Divisores, bordas sutis          |
+| `border-strong`  | `#2a2a35` | Bordas de chips, inputs          |
+| `accent`         | `#1e40af` | Royal Blue — bordas ativas, CTAs |
+| `accent-bright`  | `#5582e8` | Texto azul, ícones, hover states |
+| `text-primary`   | `#ffffff` | Headings, conteúdo principal     |
+| `text-secondary` | `#bbbbbb` | Body, parágrafos                 |
+| `text-muted`     | `#888888` | Labels, metadata                 |
+| `text-dim`       | `#555555` | Numeração, hints                 |
 
 Fundo do hero usa **glow radial azul difuso** (`radial-gradient(circle, rgba(30,64,175,0.2) 0%, transparent 70%)` + `blur(60px)`) atrás do conteúdo, criando profundidade atmosférica.
 
 ### Tipografia
 
-| Família | Uso | Fonte |
-|---|---|---|
-| **Fraunces** (serif, weights 300/500/700) | Headings, nomes, citações | Google Fonts |
-| **Inter Tight** (sans, weights 400/500/700) | Body, parágrafos, navegação | Google Fonts |
-| **JetBrains Mono** (mono, weights 400/500) | Labels técnicos, números de seção, eyebrow, chips | Google Fonts |
+| Família                                     | Uso                                               | Fonte        |
+| ------------------------------------------- | ------------------------------------------------- | ------------ |
+| **Fraunces** (serif, weights 300/500/700)   | Headings, nomes, citações                         | Google Fonts |
+| **Inter Tight** (sans, weights 400/500/700) | Body, parágrafos, navegação                       | Google Fonts |
+| **JetBrains Mono** (mono, weights 400/500)  | Labels técnicos, números de seção, eyebrow, chips | Google Fonts |
 
 **Escala (desktop):**
+
 - H1 hero: 72px / line-height 0.95 / letter-spacing -2px
 - H2 seção: 40px / line-height 1 / letter-spacing -1px
 - H3 cards: 22px / weight 500
@@ -80,6 +83,7 @@ Fundo do hero usa **glow radial azul difuso** (`radial-gradient(circle, rgba(30,
 Single page, scroll vertical, 6 seções na ordem:
 
 ### 3.0 Navegação (sticky)
+
 - Fixa no topo com `backdrop-filter: blur(12px)` sobre `rgba(8,8,13,0.85)`
 - Logo à esquerda: `R.C` em Fraunces com o ponto em azul
 - Menu central: SOBRE · EXPERTISE · PROJETOS · CERTIFICADOS · CONTATO (JetBrains Mono, 11px, uppercase)
@@ -87,6 +91,7 @@ Single page, scroll vertical, 6 seções na ordem:
 - Em mobile: vira hambúrguer com overlay full-screen
 
 ### 3.1 Hero
+
 - Grid 1.4fr / 1fr (texto / foto) no desktop; empilhado no mobile
 - **Eyebrow** mono: `TECHNICAL ARCHITECT — AI INNOVATION`
 - **H1 serif**: `Rafael\nCarrasco.` (ponto azul, weight 700 no nome — o resto 500)
@@ -95,10 +100,12 @@ Single page, scroll vertical, 6 seções na ordem:
 - **Foto**: aspect ratio 4:5, gradiente azul nos cantos, overlay sutil de gradiente vertical, label `RAFAEL CARRASCO` em mono no canto inferior
 
 ### 3.2 Sobre
+
 - Numerada `01 — SOBRE`
 - Título: `Engenharia de software com olhar de arquiteto.`
 - Grid 1fr / 1.4fr: texto à esquerda, citação à direita
 - **Texto (PT-BR):**
+
   > Engenheiro de software formado em Ciência da Computação pelo Instituto Mauá de Tecnologia. Trabalho na interseção entre mobile, web, app, back-end e inteligência artificial — do código que escala às decisões de arquitetura que orientam o produto.
   >
   > Meu dia a dia mistura fullstack, com grande maioria em Flutter, Node.js, Firebase, REST APIs e o desenho de sistemas baseados em LLMs, MCP Servers e Agents, sempre buscando equilíbrio entre engenharia sólida e impacto real.
@@ -108,27 +115,30 @@ Single page, scroll vertical, 6 seções na ordem:
   > — AYRTON SENNA
 
 ### 3.3 Expertise
+
 - Numerada `02 — EXPERTISE`
 - Título: `Stack técnico.`
 - Grid 3 colunas (2 colunas em tablet, 1 em mobile), 6 cards:
 
-| # | Título | Descrição |
-|---|---|---|
-| 1 | AI Agents | Sistemas autônomos com tool-use, planning e long-running tasks |
-| 2 | MCP Servers | Model Context Protocol — integrações ricas para LLMs |
-| 3 | LLMs aplicados | RAG, fine-tuning, evals — IA que vai pra produção |
-| 4 | Flutter | Mobile cross-platform com performance nativa |
-| 5 | Node.js | APIs escaláveis, serviços backend, integrações |
-| 6 | Firebase | Realtime, auth, functions — infra serverless |
+| #   | Título         | Descrição                                                      |
+| --- | -------------- | -------------------------------------------------------------- |
+| 1   | AI Agents      | Sistemas autônomos com tool-use, planning e long-running tasks |
+| 2   | MCP Servers    | Model Context Protocol — integrações ricas para LLMs           |
+| 3   | LLMs aplicados | RAG, fine-tuning, evals — IA que vai pra produção              |
+| 4   | Flutter        | Mobile cross-platform com performance nativa                   |
+| 5   | Node.js        | APIs escaláveis, serviços backend, integrações                 |
+| 6   | Firebase       | Realtime, auth, functions — infra serverless                   |
 
 Cada card: ícone símbolo geométrico em borda azul (32×32), título em Fraunces, descrição em Inter Tight. Hover: `transform: translateY(-4px)` + borda azul.
 
 ### 3.4 Projetos
+
 - Numerada `03 — PROJETOS`
 - Título: `Trabalho em destaque.`
 - Hint mono: `// CLIQUE EM QUALQUER PROJETO PARA ABRIR DETALHES`
 
 #### 3.4.1 Featured Project (Cinema)
+
 - Bloco grande (altura 360px desktop, 240px mobile)
 - Gradiente diagonal `#1e40af` → `#0d0d14`
 - Conteúdo posicionado: tag `FEATURED PROJECT` no topo, nome em Fraunces 56px na base
@@ -137,6 +147,7 @@ Cada card: ícone símbolo geométrico em borda azul (32×32), título em Fraunc
 - Click: abre modal de projeto (ver seção 4.2)
 
 #### 3.4.2 Grid de projetos
+
 - 2 colunas no desktop, 1 no mobile
 - 4–6 cards (conteúdo curado pelo Rafael)
 - Cada card:
@@ -151,6 +162,7 @@ Cada card: ícone símbolo geométrico em borda azul (32×32), título em Fraunc
 **Conteúdo dos projetos:** TBD — Rafael vai escolher quais do GitHub destacar. Estrutura preparada pra 1 featured + 4 grid (total 5). Reduzir/aumentar é trivial.
 
 ### 3.5 Certificados
+
 - Numerada `04 — CERTIFICADOS`
 - Título: `Formação contínua.`
 - Hint mono: `// CLIQUE PARA VER CERTIFICADO COMPLETO`
@@ -162,6 +174,7 @@ Cada card: ícone símbolo geométrico em borda azul (32×32), título em Fraunc
 **Conteúdo:** placeholder por enquanto. Rafael vai puxar últimos certificados do LinkedIn (provavelmente Anthropic Academy + Mauá + Vancouver/Inglês + outros).
 
 ### 3.6 Contato
+
 - Numerada `05 — CONTATO`
 - Centralizado
 - Título grande em Fraunces 64px: `Vamos conversar.` (palavra "conversar" em azul)
@@ -189,6 +202,7 @@ Cada card: ícone símbolo geométrico em borda azul (32×32), título em Fraunc
 Aberto via click em featured ou grid card. Animação de entrada: backdrop fade 200ms + modal scale(0.96 → 1) translateY(20 → 0) em 400ms ease-out.
 
 **Estrutura do modal de projeto:**
+
 - Backdrop com `rgba(0,0,0,0.85)` + blur(8px)
 - Container central, max-width 800px, max-height 90vh, scroll interno
 - Imagem hero do projeto no topo (aspect 16:9)
@@ -202,6 +216,7 @@ Aberto via click em featured ou grid card. Animação de entrada: backdrop fade 
 ### 4.3 Modais de certificado
 
 Mesmo padrão, mais simples:
+
 - Imagem do certificado (PDF embed ou PNG)
 - Nome do curso/certificação
 - Emissor
@@ -227,19 +242,20 @@ Mesmo padrão, mais simples:
 
 ## 5. Stack técnica
 
-| Camada | Escolha | Razão |
-|---|---|---|
-| Framework | **Astro 4.x** | Static-first, i18n nativo, content collections, JS mínimo |
-| Linguagem | **TypeScript** | Tipagem nas content collections e props |
-| Estilização | **CSS scoped** em arquivos `.astro` + variáveis globais em `src/styles/tokens.css` | Sem framework CSS — controle total, bundle mínimo |
-| Animação | **GSAP** + **ScrollTrigger** + **Lenis** | Scroll cinemático fluido, padrão indústria para sites desse perfil |
-| Modais | Custom (vanilla JS em ilha Astro) | Sem dep extra; reusa estilos do tema |
-| Fontes | Google Fonts (Fraunces, Inter Tight, JetBrains Mono) servidas via `<link>` com preconnect | Cacheável, free, sem download local |
-| Ícones | Símbolos Unicode + SVG inline | Sem biblioteca de ícones, máxima leveza |
-| i18n | Astro i18n built-in com pastas `/src/content/[lang]/` | Type-safe, sem libs |
-| Build/deploy | **Vercel** com GitHub integration | Preview deploys, edge CDN, domínio customizado fácil |
+| Camada       | Escolha                                                                                   | Razão                                                              |
+| ------------ | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Framework    | **Astro 4.x**                                                                             | Static-first, i18n nativo, content collections, JS mínimo          |
+| Linguagem    | **TypeScript**                                                                            | Tipagem nas content collections e props                            |
+| Estilização  | **CSS scoped** em arquivos `.astro` + variáveis globais em `src/styles/tokens.css`        | Sem framework CSS — controle total, bundle mínimo                  |
+| Animação     | **GSAP** + **ScrollTrigger** + **Lenis**                                                  | Scroll cinemático fluido, padrão indústria para sites desse perfil |
+| Modais       | Custom (vanilla JS em ilha Astro)                                                         | Sem dep extra; reusa estilos do tema                               |
+| Fontes       | Google Fonts (Fraunces, Inter Tight, JetBrains Mono) servidas via `<link>` com preconnect | Cacheável, free, sem download local                                |
+| Ícones       | Símbolos Unicode + SVG inline                                                             | Sem biblioteca de ícones, máxima leveza                            |
+| i18n         | Astro i18n built-in com pastas `/src/content/[lang]/`                                     | Type-safe, sem libs                                                |
+| Build/deploy | **Vercel** com GitHub integration                                                         | Preview deploys, edge CDN, domínio customizado fácil               |
 
 **Dependências planejadas (package.json mínimo):**
+
 - `astro`
 - `@astrojs/check`
 - `typescript`
@@ -275,20 +291,19 @@ src/content/
 
 ```yaml
 ---
-title: "Nome do Projeto"
-slug: "agent-orchestrator"
-featured: true                   # apenas um projeto pode ter true
-order: 1                         # ordem no grid
+title: 'Nome do Projeto'
+slug: 'agent-orchestrator'
+featured: true # apenas um projeto pode ter true
+order: 1 # ordem no grid
 year: 2025
-stack: ["MCP", "Node.js", "TypeScript"]
-description: "Linha curta para o card"
-heroImage: "/img/projects/agent-orchestrator-hero.jpg"
+stack: ['MCP', 'Node.js', 'TypeScript']
+description: 'Linha curta para o card'
+heroImage: '/img/projects/agent-orchestrator-hero.jpg'
 links:
-  github: "https://github.com/RafCarrasco/..."
-  demo: "https://..."            # opcional
-  article: "https://..."         # opcional
+  github: 'https://github.com/RafCarrasco/...'
+  demo: 'https://...' # opcional
+  article: 'https://...' # opcional
 ---
-
 # Markdown body com a descrição completa do projeto
 ...
 ```
@@ -297,14 +312,13 @@ links:
 
 ```yaml
 ---
-title: "Building with Claude"
-issuer: "Anthropic Academy"
-date: "2025-08"
+title: 'Building with Claude'
+issuer: 'Anthropic Academy'
+date: '2025-08'
 order: 1
-image: "/img/certs/anthropic-claude.png"  # ou pdf
-verifyUrl: "https://..."         # opcional
+image: '/img/certs/anthropic-claude.png' # ou pdf
+verifyUrl: 'https://...' # opcional
 ---
-
 # Descrição curta opcional do que foi aprendido
 ```
 
@@ -389,11 +403,13 @@ Contém: nav labels, hero eyebrow/tagline, CTAs, sec-num labels, títulos de se�
 ## 9. Responsividade
 
 Breakpoints:
+
 - `desktop` ≥ 1024px (design primário)
 - `tablet` 768–1023px (grids viram 2 colunas, fontes reduzem ~10%)
 - `mobile` < 768px (tudo empilha, fontes reduzem ~25%, nav vira hambúrguer)
 
 Mobile-specific:
+
 - Hero: foto em cima, texto embaixo
 - Featured project: altura reduzida pra 240px
 - Modais: fullscreen com padding mínimo
@@ -445,13 +461,13 @@ Implementação está "pronta" quando:
 
 ## 13. Riscos e mitigações
 
-| Risco | Mitigação |
-|---|---|
+| Risco                                               | Mitigação                                                                   |
+| --------------------------------------------------- | --------------------------------------------------------------------------- |
 | Animações em mobile pesado (low-end) podem janquear | Usar `prefers-reduced-motion` + simplificar animações em viewports pequenos |
-| Fontes do Google atrasam first paint | Preload + `font-display: swap` |
-| Modais quebram em mobile | Testar com keyboard virtual e safe areas |
-| Conteúdo bilíngue desincronizado | CI check que valida paridade de arquivos PT/EN |
-| Domínio `.dev`/`.ai` indisponível | Fallback: `rafaelcarrasco.com.br` ou `rafcarrasco.dev` |
+| Fontes do Google atrasam first paint                | Preload + `font-display: swap`                                              |
+| Modais quebram em mobile                            | Testar com keyboard virtual e safe areas                                    |
+| Conteúdo bilíngue desincronizado                    | CI check que valida paridade de arquivos PT/EN                              |
+| Domínio `.dev`/`.ai` indisponível                   | Fallback: `rafaelcarrasco.com.br` ou `rafcarrasco.dev`                      |
 
 ---
 

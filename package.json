@@ -9,11 +9,24 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
     "astro": "^6.3.6",
     "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1",
+    "prettier": "^3.8.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "vitest": "^4.1.7"
   }
 }

@@ -1,0 +1,115 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const items = [
+  { icon: '⊕', key: 'ai' },
+  { icon: '▣', key: 'mcp' },
+  { icon: '◐', key: 'llm' },
+  { icon: '◇', key: 'flutter' },
+  { icon: '◈', key: 'node' },
+  { icon: '▲', key: 'firebase' },
+] as const;
+---
+
+<section class="expertise" id="expertise">
+  <div class="sec-num">{t('sec.02')}</div>
+  <h2 class="sec-title">{t('expertise.title')}</h2>
+
+  <div class="grid">
+    {
+      items.map((item) => (
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            {item.icon}
+          </div>
+          <h3>{t(`expertise.${item.key}.title` as any)}</h3>
+          <p>{t(`expertise.${item.key}.desc` as any)}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .expertise {
+    padding: var(--section-padding);
+    border-top: 1px solid var(--border);
+  }
+  .sec-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent-bright);
+    letter-spacing: 2px;
+    margin-bottom: var(--space-4);
+  }
+  .sec-title {
+    font-family: var(--font-serif);
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: var(--space-12);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+
+  .card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    padding: var(--space-8);
+    transition:
+      border-color var(--duration-base),
+      transform var(--duration-base);
+  }
+  .card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--accent);
+    color: var(--accent-bright);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    margin-bottom: var(--space-4);
+  }
+
+  h3 {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: var(--space-2);
+  }
+
+  p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .sec-title {
+      font-size: 28px;
+    }
+  }
+</style>

@@ -1,6 +1,6 @@
 # Portfolio · Rafael Carrasco
 
-Site pessoal — engenheiro de software com foco em mobile, back-end e inteligência artificial aplicada.
+Site pessoal — engenheiro de software com foco em front-end, back-end e inteligência artificial aplicada.
 
 Construído com [Astro](https://astro.build), bilíngue (PT/EN), animações com GSAP + Lenis, hospedado na Vercel.
 

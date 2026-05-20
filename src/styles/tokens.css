@@ -1,0 +1,53 @@
+:root {
+  /* Paleta — Royal Blue dark theme */
+  --bg-primary: #08080d;
+  --bg-secondary: #0d0d14;
+  --bg-tertiary: #14141c;
+  --border: #1a1a22;
+  --border-strong: #2a2a35;
+  --accent: #1e40af;
+  --accent-bright: #5582e8;
+  --accent-glow: rgba(30, 64, 175, 0.2);
+  --text-primary: #ffffff;
+  --text-secondary: #bbbbbb;
+  --text-muted: #888888;
+  --text-dim: #555555;
+
+  /* Tipografia */
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Inter Tight', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Espaçamentos */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-20: 80px;
+  --space-24: 100px;
+
+  /* Layout */
+  --container-max: 1280px;
+  --section-padding: var(--space-20) var(--space-12);
+
+  /* Animação */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 800ms;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: var(--space-12) var(--space-8);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: var(--space-12) var(--space-6);
+  }
+}

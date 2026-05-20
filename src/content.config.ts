@@ -29,13 +29,23 @@ const certificateSchema = z.object({
   verifyUrl: z.url().optional(),
 });
 
+const stripExtension = (entry: string): string => entry.replace(/\.(md|mdx)$/, '');
+
 const projects = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
+  loader: glob({
+    pattern: '**/*.{md,mdx}',
+    base: './src/content/projects',
+    generateId: ({ entry }) => stripExtension(entry),
+  }),
   schema: projectSchema,
 });
 
 const certificates = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/certificates' }),
+  loader: glob({
+    pattern: '**/*.{md,mdx}',
+    base: './src/content/certificates',
+    generateId: ({ entry }) => stripExtension(entry),
+  }),
   schema: certificateSchema,
 });
 

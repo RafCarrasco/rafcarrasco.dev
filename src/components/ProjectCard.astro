@@ -1,0 +1,105 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  index: number;
+}
+
+const { project, index } = Astro.props;
+const { title, description, stack, slug } = project.data;
+const num = String(index).padStart(2, '0');
+---
+
+<button class="card" data-project={slug}>
+  <span class="pulse" aria-hidden="true"></span>
+  <div>
+    <div class="num">// {num}</div>
+    <div class="name">{title}</div>
+    <p class="desc">{description}</p>
+  </div>
+  <div class="stack">
+    {stack.map((chip) => <span class="chip">{chip}</span>)}
+  </div>
+</button>
+
+<style>
+  .card {
+    background: linear-gradient(180deg, var(--bg-tertiary), var(--bg-secondary));
+    border: 1px solid var(--border);
+    padding: var(--space-6);
+    cursor: pointer;
+    transition:
+      transform var(--duration-base) var(--ease-out),
+      border-color var(--duration-base),
+      box-shadow var(--duration-base);
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    text-align: left;
+    width: 100%;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(30, 64, 175, 0.2);
+  }
+
+  .pulse {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-bright);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(85, 130, 232, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 8px rgba(85, 130, 232, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(85, 130, 232, 0);
+    }
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--accent-bright);
+    letter-spacing: 1.5px;
+  }
+  .name {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 500;
+    margin: var(--space-3) 0 var(--space-2);
+    line-height: 1.1;
+  }
+  .desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .stack {
+    display: flex;
+    gap: 6px;
+    margin-top: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-muted);
+    border: 1px solid var(--border-strong);
+    padding: 3px 8px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+</style>

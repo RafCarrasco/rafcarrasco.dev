@@ -1,0 +1,110 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { title, year, stack, slug } = project.data;
+---
+
+<button class="featured" data-project={slug}>
+  <span class="pulse" aria-hidden="true"></span>
+  <div class="overlay">
+    <div class="tag">{t('projects.featured')} · {year}</div>
+    <div class="info">
+      <div class="name">{title}<em>.</em></div>
+      <div class="meta">{stack.join(' · ')}</div>
+    </div>
+  </div>
+</button>
+
+<style>
+  .featured {
+    width: 100%;
+    height: 360px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--bg-secondary) 70%);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--space-6);
+    cursor: pointer;
+    transition: transform var(--duration-slow);
+    text-align: left;
+  }
+  .featured:hover {
+    transform: scale(1.01);
+  }
+
+  .pulse {
+    position: absolute;
+    top: var(--space-6);
+    right: var(--space-6);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-bright);
+    animation: pulse 2s infinite;
+    z-index: 1;
+  }
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(85, 130, 232, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 8px rgba(85, 130, 232, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(85, 130, 232, 0);
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    padding: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 2px;
+  }
+  .name {
+    font-family: var(--font-serif);
+    font-size: 56px;
+    line-height: 0.95;
+    font-weight: 500;
+    letter-spacing: -1px;
+    max-width: 600px;
+  }
+  .name em {
+    color: var(--accent-bright);
+    font-style: normal;
+  }
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 1.5px;
+    margin-top: var(--space-3);
+  }
+
+  @media (max-width: 768px) {
+    .featured {
+      height: 240px;
+    }
+    .overlay {
+      padding: var(--space-6);
+    }
+    .name {
+      font-size: 32px;
+    }
+  }
+</style>

@@ -1,0 +1,74 @@
+---
+import { getCollection } from 'astro:content';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import FeaturedProject from './FeaturedProject.astro';
+import ProjectCard from './ProjectCard.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const all = await getCollection('projects', ({ id }) => id.startsWith(`${lang}/`));
+const sorted = all.sort((a, b) => a.data.order - b.data.order);
+const featured = sorted.find((p) => p.data.featured);
+const others = sorted.filter((p) => !p.data.featured);
+---
+
+<section class="projects" id="projects">
+  <div class="sec-num">{t('sec.03')}</div>
+  <h2 class="sec-title">{t('projects.title')}</h2>
+  <p class="hint">{t('projects.hint')}</p>
+
+  {featured && <FeaturedProject project={featured} />}
+
+  {
+    others.length > 0 && (
+      <div class="grid">
+        {others.map((project, i) => (
+          <ProjectCard project={project} index={i + 2} />
+        ))}
+      </div>
+    )
+  }
+</section>
+
+<style>
+  .projects {
+    padding: var(--section-padding);
+    border-top: 1px solid var(--border);
+  }
+  .sec-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent-bright);
+    letter-spacing: 2px;
+    margin-bottom: var(--space-4);
+  }
+  .sec-title {
+    font-family: var(--font-serif);
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: var(--space-4);
+  }
+  .hint {
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    margin-bottom: var(--space-8);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .sec-title {
+      font-size: 28px;
+    }
+  }
+</style>

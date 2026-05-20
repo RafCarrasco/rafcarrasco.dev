@@ -1,0 +1,95 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const title = t('contact.title');
+const [titleStart, titleEnd] = title.split(/\s+(?=\S+\.?$)/);
+---
+
+<section class="contact" id="contact">
+  <div class="sec-num">{t('sec.05')}</div>
+  <h2 class="title">
+    {titleStart}
+    <em>{titleEnd.replace('.', '')}</em>.
+  </h2>
+  <p class="subtitle">{t('contact.subtitle')}</p>
+  <div class="links">
+    <a
+      class="link"
+      href="https://linkedin.com/in/rafael-alves-carrasco"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      LINKEDIN ↗
+    </a>
+    <a class="link" href="https://github.com/RafCarrasco" target="_blank" rel="noopener noreferrer">
+      GITHUB ↗
+    </a>
+    <a class="link" href="mailto:rafaelcarrasco304@gmail.com"> EMAIL ↗ </a>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding: var(--space-24) var(--space-12);
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+  .sec-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent-bright);
+    letter-spacing: 2px;
+    margin-bottom: var(--space-4);
+  }
+  .title {
+    font-family: var(--font-serif);
+    font-size: 64px;
+    font-weight: 500;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: var(--space-8);
+  }
+  .title em {
+    color: var(--accent-bright);
+    font-style: normal;
+  }
+  .subtitle {
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto var(--space-8);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+  .link {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 12px 20px;
+    border: 1px solid var(--accent);
+    color: var(--accent-bright);
+    transition:
+      background var(--duration-fast),
+      color var(--duration-fast);
+  }
+  .link:hover {
+    background: var(--accent);
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 40px;
+    }
+    .contact {
+      padding: var(--space-12) var(--space-6);
+    }
+  }
+</style>

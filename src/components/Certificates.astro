@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import CertRow from './CertRow.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const all = await getCollection('certificates', ({ id }) => id.startsWith(`${lang}/`));
+const sorted = all.sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="certs" id="certificates">
+  <div class="sec-num">{t('sec.04')}</div>
+  <h2 class="sec-title">{t('certs.title')}</h2>
+  <p class="hint">{t('certs.hint')}</p>
+
+  <div>
+    {sorted.map((cert, i) => <CertRow cert={cert} index={i + 1} />)}
+  </div>
+</section>
+
+<style>
+  .certs {
+    padding: var(--section-padding);
+    border-top: 1px solid var(--border);
+  }
+  .sec-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent-bright);
+    letter-spacing: 2px;
+    margin-bottom: var(--space-4);
+  }
+  .sec-title {
+    font-family: var(--font-serif);
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: var(--space-4);
+  }
+  .hint {
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    margin-bottom: var(--space-4);
+  }
+  @media (max-width: 768px) {
+    .sec-title {
+      font-size: 28px;
+    }
+  }
+</style>

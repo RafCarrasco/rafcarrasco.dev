@@ -1,0 +1,100 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  cert: CollectionEntry<'certificates'>;
+  index: number;
+}
+
+const { cert, index } = Astro.props;
+const { title, issuer, date } = cert.data;
+const num = String(index).padStart(2, '0');
+const slug = cert.id.split('/').pop() ?? cert.id;
+---
+
+<button class="row" data-cert={slug}>
+  <div class="num">{num}</div>
+  <div class="title">{title}</div>
+  <div class="issuer">{issuer}</div>
+  <div class="date">{date}</div>
+  <div class="icon" aria-hidden="true">↗</div>
+</button>
+
+<style>
+  .row {
+    display: grid;
+    grid-template-columns: 40px 1fr 200px 100px 20px;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    position: relative;
+    transition: padding var(--duration-base) var(--ease-out);
+    width: 100%;
+    text-align: left;
+  }
+  .row::before {
+    content: '';
+    position: absolute;
+    left: calc(-1 * var(--space-12));
+    right: calc(-1 * var(--space-12));
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(30, 64, 175, 0.06), transparent);
+    opacity: 0;
+    transition: opacity var(--duration-base);
+  }
+  .row:hover::before {
+    opacity: 1;
+  }
+  .row:hover {
+    padding-left: 12px;
+  }
+  .row:hover .icon {
+    color: var(--accent-bright);
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--accent-bright);
+    letter-spacing: 1px;
+  }
+  .title {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    font-weight: 500;
+  }
+  .issuer {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+  }
+  .date {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--accent-bright);
+    letter-spacing: 1.5px;
+    text-align: right;
+  }
+  .icon {
+    color: var(--text-dim);
+    text-align: right;
+    font-size: 14px;
+    transition: color var(--duration-fast);
+  }
+
+  @media (max-width: 768px) {
+    .row {
+      grid-template-columns: 30px 1fr 60px 20px;
+      gap: var(--space-2);
+    }
+    .issuer {
+      display: none;
+    }
+    .title {
+      font-size: 16px;
+    }
+  }
+</style>

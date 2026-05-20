@@ -43,6 +43,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
   </head>
   <body>
     <slot />
+    <script>
+      import '../scripts/modal';
+    </script>
   </body>
 </html>
 

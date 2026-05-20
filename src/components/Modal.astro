@@ -28,6 +28,9 @@ const { id, title, closeLabel } = Astro.props;
     justify-content: center;
     padding: var(--space-6);
   }
+  .modal[hidden] {
+    display: none;
+  }
   .modal-backdrop {
     position: absolute;
     inset: 0;

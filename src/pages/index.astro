@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
 ---
 
 <BaseLayout
@@ -8,10 +9,5 @@ import Nav from '../components/Nav.astro';
   description="Engenheiro de software entre mobile, back-end e IA aplicada."
 >
   <Nav />
-  <main style="padding: 80px; min-height: 200vh;">
-    <h1 style="font-family: var(--font-serif); font-size: 64px;">Sticky nav teste</h1>
-    <p style="color: var(--text-secondary); margin-top: 24px;">
-      Faça scroll para validar que o nav fica fixo no topo com blur.
-    </p>
-  </main>
+  <Hero />
 </BaseLayout>

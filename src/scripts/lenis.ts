@@ -1,5 +1,11 @@
 import Lenis from 'lenis';
 
+declare global {
+  interface Window {
+    __lenis?: Lenis;
+  }
+}
+
 export function initLenis() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) return null;
@@ -15,6 +21,9 @@ export function initLenis() {
     requestAnimationFrame(raf);
   }
   requestAnimationFrame(raf);
+
+  // Expose globally so other modules (modal) can pause/resume.
+  window.__lenis = lenis;
 
   return lenis;
 }

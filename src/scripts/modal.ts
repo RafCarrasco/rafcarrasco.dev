@@ -38,11 +38,19 @@ export function openModal(id: string) {
   if (!modal) return;
   const backdrop = modal.querySelector<HTMLElement>('.modal-backdrop');
   const closeBtn = modal.querySelector<HTMLButtonElement>('.modal-close');
+  const container = modal.querySelector<HTMLElement>('.modal-container');
   if (!backdrop || !closeBtn) return;
 
   lastFocused = document.activeElement as HTMLElement;
   modal.removeAttribute('hidden');
+
+  // Pause Lenis: its body-level transform breaks position:fixed on the modal.
+  window.__lenis?.stop();
   document.body.style.overflow = 'hidden';
+
+  // Reset internal scroll so the modal always opens at the top of its content.
+  if (container) container.scrollTop = 0;
+
   requestAnimationFrame(() => modal.classList.add('open'));
 
   activeModal = { modal, backdrop, closeBtn };
@@ -60,6 +68,7 @@ export function closeActiveModal() {
   setTimeout(() => {
     modal.setAttribute('hidden', '');
     document.body.style.overflow = '';
+    window.__lenis?.start();
     if (lastFocused) lastFocused.focus();
   }, 200);
   document.removeEventListener('keydown', onKeyDown);

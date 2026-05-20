@@ -33,8 +33,8 @@ const t = useTranslations(lang);
   .hero {
     padding: var(--space-20) var(--space-12);
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: var(--space-12);
+    grid-template-columns: 1.6fr 1fr;
+    gap: var(--space-8);
     align-items: center;
     min-height: 600px;
     position: relative;
@@ -126,6 +126,9 @@ const t = useTranslations(lang);
 
   .hero-photo {
     aspect-ratio: 4/5;
+    max-width: 340px;
+    width: 100%;
+    justify-self: start;
     background: linear-gradient(135deg, var(--bg-tertiary), var(--accent));
     border: 1px solid var(--accent);
     position: relative;

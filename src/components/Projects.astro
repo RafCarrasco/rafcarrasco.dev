@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import FeaturedProject from './FeaturedProject.astro';
 import ProjectCard from './ProjectCard.astro';
+import ProjectModal from './ProjectModal.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -30,6 +31,8 @@ const others = sorted.filter((p) => !p.data.featured);
     )
   }
 </section>
+
+{sorted.map((project) => <ProjectModal project={project} />)}
 
 <style>
   .projects {

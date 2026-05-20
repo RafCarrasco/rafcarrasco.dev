@@ -36,3 +36,6 @@ Thumbs.db
 test-results/
 playwright-report/
 playwright/.cache/
+
+# responsive/a11y audit artifacts (local-only)
+tmp-screenshots/

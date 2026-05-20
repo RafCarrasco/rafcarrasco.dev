@@ -3,6 +3,7 @@ title: 'Bachelor in Computer Science'
 issuer: 'Instituto Mauá de Tecnologia'
 date: '2025'
 order: 1
+image: '/img/certs/imt-diploma.jpg'
 verifyUrl: 'https://www.maua.br/diploma/?CodigoValidacao=1445.1445.38f65aa6fb46'
 ---
 

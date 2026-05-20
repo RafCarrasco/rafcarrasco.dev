@@ -31,3 +31,8 @@ Thumbs.db
 
 # brainstorming session artifacts (local-only)
 .superpowers/
+
+# playwright
+test-results/
+playwright-report/
+playwright/.cache/

@@ -24,8 +24,8 @@ export const ui = {
     'sec.03': '03 — PROJETOS',
     'sec.04': '04 — CERTIFICADOS',
     'sec.05': '05 — CONTATO',
-    'about.title.line1': 'Engenharia de software',
-    'about.title.line2': 'com olhar de arquiteto.',
+    'about.title.line1': 'Engenharia de',
+    'about.title.line2': 'com olhar de',
     'about.p1':
       'Engenheiro de software formado em Ciência da Computação pelo Instituto Mauá de Tecnologia. Trabalho na interseção entre mobile, web, app, back-end e inteligência artificial — do código que escala às decisões de arquitetura que orientam o produto.',
     'about.p2':
@@ -63,8 +63,8 @@ export const ui = {
     'sec.03': '03 — PROJECTS',
     'sec.04': '04 — CERTIFICATES',
     'sec.05': '05 — CONTACT',
-    'about.title.line1': 'Software engineering',
-    'about.title.line2': 'with an architect mindset.',
+    'about.title.line1': 'Software',
+    'about.title.line2': 'with an',
     'about.p1':
       'Software engineer with a Computer Science degree from Instituto Mauá de Tecnologia. I work at the intersection of mobile, web, app, back-end and artificial intelligence — from code that scales to the architecture decisions that shape the product.',
     'about.p2':

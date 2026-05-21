@@ -10,11 +10,24 @@ O design completo está documentado em [`docs/superpowers/specs/2026-05-20-portf
 
 ## Stack
 
-- **Framework:** Astro 4 + TypeScript
+- **Framework:** Astro 6 + TypeScript (strict)
 - **Animação:** GSAP + ScrollTrigger + Lenis
 - **Estilo:** CSS scoped + variáveis de design tokens
 - **i18n:** Astro i18n nativo (PT default, EN em `/en/`)
+- **Conteúdo:** content collections (markdown + zod) para projetos e certificados
+- **Testes:** Vitest (unit) + Playwright (e2e) + @axe-core (a11y)
 - **Deploy:** Vercel
+
+## Scripts
+
+```bash
+npm run dev        # servidor local — http://localhost:4321
+npm run build      # build de produção em dist/
+npm run preview    # preview do build
+npm run check      # diagnóstico TypeScript/Astro
+npm test           # testes unitários (vitest)
+npm run test:e2e   # testes end-to-end (playwright)
+```
 
 ## Links
 

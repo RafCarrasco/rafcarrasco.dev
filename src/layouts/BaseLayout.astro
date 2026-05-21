@@ -13,17 +13,43 @@ export interface Props {
 const { title, description, image = '/og-image.png' } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const htmlLang = lang === 'pt' ? 'pt-BR' : 'en';
+const ogLocale = lang === 'pt' ? 'pt_BR' : 'en_US';
+const ogLocaleAlt = lang === 'pt' ? 'en_US' : 'pt_BR';
+const ptURL = new URL('/', Astro.site).toString();
+const enURL = new URL('/en/', Astro.site).toString();
+const ogImageURL = new URL(image, Astro.site).toString();
+
+const personLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Rafael Carrasco',
+  jobTitle: 'Technical Architect — AI Innovation',
+  url: new URL('/', Astro.site).toString(),
+  image: ogImageURL,
+  sameAs: [
+    'https://linkedin.com/in/rafael-alves-carrasco',
+    'https://github.com/RafCarrasco',
+  ],
+  worksFor: { '@type': 'Organization', name: 'Procurement Garage' },
+};
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#08080d" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
+
+    <link rel="alternate" hreflang="pt-BR" href={ptURL} />
+    <link rel="alternate" hreflang="en" href={enURL} />
+    <link rel="alternate" hreflang="x-default" href={ptURL} />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -31,15 +57,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.site).toString()} />
+    <meta property="og:image" content={ogImageURL} />
     <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlt} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
   </head>
   <body>
     <slot />

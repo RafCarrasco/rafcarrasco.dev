@@ -70,7 +70,8 @@ const personLd = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(personLd)}
+    ></script>
   </head>
   <body>
     <slot />

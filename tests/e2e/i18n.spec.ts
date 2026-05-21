@@ -14,7 +14,7 @@ test('language toggle navigates to /en/ and shows english content', async ({ pag
 
 test('html lang attribute switches with language', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('html')).toHaveAttribute('lang', 'pt');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
   await page.goto('/en/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 });

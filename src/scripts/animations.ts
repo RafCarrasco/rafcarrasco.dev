@@ -8,12 +8,16 @@ export function initAnimations() {
   if (prefersReducedMotion) return;
 
   // Reveal de seções
+  // clearProps remove o transform residual que o GSAP deixa em cada <section>.
+  // Sem isso, o transform (mesmo identidade) vira containing block e quebra
+  // position:fixed em qualquer descendente — ex: o overlay dos modais.
   document.querySelectorAll<HTMLElement>('section').forEach((section) => {
     gsap.from(section, {
       opacity: 0,
       y: 24,
       duration: 0.8,
       ease: 'power3.out',
+      clearProps: 'transform',
       scrollTrigger: {
         trigger: section,
         start: 'top 70%',

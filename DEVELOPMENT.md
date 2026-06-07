@@ -219,6 +219,25 @@ Bug fix encontrado: `b1bbbcc` — i18n keys com palavras duplicadas no título d
 - Diploma agora exibe a imagem do certificado no modal + link pro PDF + botão de validação Mauá
 - Adicionado script `scripts/pdf-to-cert-image.mjs` pra futuras conversões (ex: Anthropic Academy)
 
+### 4.11 Modal reconstruído + diagnóstico correto (continuidade 2026-05-21)
+
+- **Sintoma:** modais de certificado/projeto abriam "dentro de uma seção" — backdrop não cobria o viewport, conteúdo da página vazava por baixo. Ruim no desktop e no mobile.
+- **Causa raiz real:** `gsap.from(section, { y })` em `animations.ts` deixa um `transform` (mesmo matriz identidade) em **toda `<section>`**. Um ancestral com `transform` vira *containing block* de descendentes `position:fixed` — o overlay do modal resolvia `inset:0` contra a seção, não o viewport.
+- **Correção do diagnóstico:** a seção 4.6 atribuía esse problema ao Lenis. Estava errado — o Lenis (modo default v1.3) usa scroll nativo, sem transform no body. O culpado sempre foi o GSAP. Os fixes de Lenis (`lenis.stop()`, `data-lenis-prevent`) tratam o *scroll lock*, não o posicionamento.
+- **Fix definitivo:**
+  - `modal.ts` move (`portal`) cada `.modal` para o `<body>` no init → `position:fixed` resolve contra o viewport, imune a transform de ancestrais
+  - `clearProps:'transform'` no reveal das seções remove o transform residual
+  - double-`requestAnimationFrame` na abertura → transição de entrada confiável
+  - corrigido vazamento de listeners (`{once}` re-adicionados a cada abertura, nunca removidos)
+- **UX do modal:** barra superior fixa dedicada ao botão de fechar (X nunca sobre imagem/texto), ícone SVG, scrollbar fina, modal full-screen no mobile, padding responsivo via `--modal-pad`.
+
+### 4.12 Projetos reais + SEO (continuidade 2026-05-21)
+
+- Placeholders `exemplo-*` substituídos por **5 projetos reais** curados do GitHub: Nexia (featured), Bag Finder, UHF RFID Reader Server, Teams Transcript, Who Unfollowed Me — cada um com markdown PT e EN.
+- Extensão Chrome **Who Unfollowed Me** versionada e publicada em `github.com/RafCarrasco/who-unfollowed-me`.
+- SEO: `hreflang` recíproco PT/EN, `@astrojs/sitemap`, `robots.txt`, JSON-LD `Person`, `og:locale`, `twitter:image`, `lang=pt-BR`, página `404` com marca.
+- `site` apontado pra URL real da Vercel (canonical/OG resolviam pra `rafcarrasco.dev`, domínio ainda não comprado).
+
 ---
 
 ## 5. Stack final
@@ -257,11 +276,19 @@ Lint/Format      Prettier + prettier-plugin-astro
 - 0 violações WCAG AA
 - Deploy automático na Vercel
 
+### ✅ Concluído na continuidade (2026-05-21)
+
+- Modal reconstruído — overlay ancorado no viewport, barra de fechar dedicada (ver 4.11)
+- 5 projetos reais substituíram os placeholders (ver 4.12)
+- SEO: hreflang, sitemap, robots.txt, JSON-LD, 404 (ver 4.12)
+
 ### 🔄 Em backlog
 
-- Substituir 1-5 projetos placeholder por reais do GitHub
 - Adicionar Anthropic Academy certs (quando completados)
-- Comprar domínio `rafcarrasco.dev` (opcional)
+- Comprar domínio `rafcarrasco.dev` → ao comprar, reverter `site` no `astro.config.mjs`
+- Hero photo / cert images via `astro:assets` (`<Image>`) — hoje usam `<img>` cru
+- Self-host de fontes (hoje `@import` do Google Fonts = waterfall de 3 hops)
+- Acessibilidade do menu mobile (focus trap, scroll lock, Escape)
 - OG image dinâmica por projeto (opcional, via Vercel OG)
 - Dark/light mode toggle (opcional, design é dark-first)
 
@@ -326,4 +353,4 @@ git push origin main
 
 ---
 
-**Última atualização:** 2026-05-20 (commit `27fb05a`)
+**Última atualização:** 2026-05-21 — continuidade: modal reconstruído, projetos reais, SEO

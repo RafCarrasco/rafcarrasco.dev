@@ -60,7 +60,7 @@ const { Content } = await render(project);
 
 <style>
   .hero-img {
-    margin: calc(-1 * var(--space-8)) calc(-1 * var(--space-8)) var(--space-6);
+    margin: calc(-1 * var(--modal-pad)) calc(-1 * var(--modal-pad)) var(--space-6);
     aspect-ratio: 16/9;
     overflow: hidden;
     background: var(--bg-tertiary);
@@ -143,5 +143,10 @@ const { Content } = await render(project);
   .link:hover {
     background: var(--accent);
     color: var(--text-primary);
+  }
+  @media (max-width: 640px) {
+    .header h3 {
+      font-size: 24px;
+    }
   }
 </style>

@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="404 · Rafael Carrasco"
+  description="Página não encontrada — Page not found."
+>
+  <main class="notfound">
+    <div class="code">404</div>
+    <h1>Página não encontrada</h1>
+    <p>O endereço não existe ou foi movido. <span>This page doesn't exist or was moved.</span></p>
+    <a class="home" href="/">← VOLTAR AO INÍCIO / BACK HOME</a>
+  </main>
+</BaseLayout>
+
+<style>
+  .notfound {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-8);
+    gap: var(--space-4);
+  }
+  .code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--accent-bright);
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(32px, 7vw, 56px);
+    font-weight: 500;
+    line-height: 1.05;
+  }
+  p {
+    color: var(--text-secondary);
+    max-width: 42ch;
+    line-height: 1.6;
+  }
+  p span {
+    display: block;
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+  .home {
+    margin-top: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: var(--accent-bright);
+    border: 1px solid var(--accent);
+    padding: 12px 20px;
+    border-radius: 4px;
+    transition:
+      background var(--duration-fast),
+      color var(--duration-fast);
+  }
+  .home:hover {
+    background: var(--accent);
+    color: var(--text-primary);
+  }
+</style>
